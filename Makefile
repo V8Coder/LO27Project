@@ -6,7 +6,7 @@ LIB=libRegistry.so
 lib:$(LIB)
 
 libRegistry.o : registry.c transaction.c user.c
-    gcc -c 
+    gcc -c
 
 clean
     rm -rf *.o *.exe
