@@ -8,11 +8,26 @@
 #ifndef _TRANSACTION_H_
 #define _TRANSACTION_H_
 
+
+typedef enum Status
+{
+    PENDING, CONFIRMED, EXECUTED, CANCELED
+} Status;
+
 /*
  * the abstract datatype transaction
  */
 typedef struct Transaction_struct {
 	long ID;
-	char Name[MaxNameLenght];
+	double Amount;
+	long EmitterID;
+	long RecipentID;
+	Status TransactionStatus;
+	long StartDateTime;
+	long EndDateTime;
+	long TTL;
+	char PrivateKey[];
 } Transaction_struct;
 typedef Transaction_struct* Transaction;
+
+#endif
