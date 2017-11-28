@@ -1,4 +1,4 @@
-/**Name of the file : saisiesecu.c
+/**Name of the file : securedinteractions.c
 *Goal of the file : have secured fontions to interact with the user and avoid buffer overflows
 *Author : Loïc MARTIN
 *E-mail : loic.martin-01@utbm.fr
@@ -6,9 +6,7 @@
 */
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <securedinteractions.h>
 
 
 void emptybuffer ()
