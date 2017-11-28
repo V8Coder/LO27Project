@@ -6,7 +6,7 @@
 *Goal of the file : have secured fontions to interact with the user and avoid buffer overflows
 *Author : Loïc MARTIN
 *E-mail : loic.martin-01@utbm.fr
-*Last modification : 26/11/2017
+*Last modification : 28/11/2017
 */
 
 
