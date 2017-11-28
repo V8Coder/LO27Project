@@ -4,3 +4,45 @@
 *E-mail : lucas.celant@utbm.fr
 *Last modification : 28/11/2017
 */
+
+#ifndef _USER_H_
+#define _USER_H_
+
+/*
+ * the abstract datatype user
+ */
+typedef struct User_struct {
+	long ID;
+	char Name[];
+} User_struct;
+typedef User_struct* User;
+
+/*
+ * createUser take a long and allocate memory for a User
+ * name : a long, the name of the user
+ * Return : a pointer to the structure
+ */
+User createUser(long name);
+
+/*
+ * getId get the user's ID
+ * u : a User data type, a pointer to a User
+ * Return : a long, the ID of the user
+ */
+long getID(User u);
+
+/*
+ * getName get the user name
+ * u : a User data type, a pointer to a User
+ * Return : a string, the name of the user
+ */
+char* getName(User u);
+
+/*
+ * setName specifies the name of the user
+ * u : a User data type, a pointer to a User
+ * name : the name of the user
+ */
+void setName(User u, char name[]);
+
+#endif
