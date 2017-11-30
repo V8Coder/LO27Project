@@ -44,7 +44,3 @@ bool isExpired(Transaction t, long d)
 	else
 		return false;
 }
-
-int main(){return 0;}
-
-

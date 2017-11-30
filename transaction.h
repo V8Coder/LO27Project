@@ -9,7 +9,7 @@
 #define _TRANSACTION_H_
 
 /*
- * the abstract datatype transaction
+ 	* The abstract datatype transaction
  */
 typedef enum bool
 {
@@ -33,6 +33,10 @@ typedef struct Transaction_struct {
 	char PrivateKey[];
 } Transaction_struct;
 typedef Transaction_struct* Transaction;
+
+/*
+	* The functions
+*/
 
 /*
  * createTransaction create a new transaction with a randomly generated ID
