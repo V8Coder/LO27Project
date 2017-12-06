@@ -5,6 +5,7 @@
 *Last modification : 28/11/2017
 */
 
-#include "registry.h"
+#include "securedinteractions.h"
+#include "registry-lib.h"
 
 

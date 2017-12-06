@@ -1,13 +1,31 @@
-registrymain.exe: registrymain.o registry.o
-	gcc registrymain.o registry.o -o registrymain.exe -Wall -Werror -ansi -pedantic -I.
-	
-registrymain.o : registrymain.c
-	gcc -c registrymain.c -Wall -Werror -ansi -pedantic -I.
+#Definition of the variables
+CFLGAS = -Wall -Werror -ansi -pedantic -I.
 
-registry.o: registry.c
-	gcc -c registry.c -Wall -Werror -ansi -pendantic -I.
-	
+#$^ means all the arguments
+#$< means the first argument
+#$@ means the name of the file to create
+
+#Creation of the main executable
 all: registrymain.exe
 
-/** I haven't put an clean  rm -rf ".o".exe because i work on windows 
-*/
+registrymain.exe: registrymain.o registry-lib.o transaction-lib.o user-lib.o securedinteractions.o
+	gcc $^ -o $@ $(CFLAGS)
+	
+registrymain.o : registrymain.c registry-lib.c user-lib.c securedinteractions.c
+	gcc -c $< -o $@ $(CFLAGS)
+	
+transaction-lib.o: transaction-lib.c registry-lib.c user-lib.c securedinteractions.c
+	gcc -c $< -o $@ $(CFLAGS)
+
+registry-lib.o: registry-lib.c securedinteractions.c
+	gcc -c $< -o $@ $(CFLAGS)
+	
+user-lib.o: user-lib.c securedinteractions.c
+	gcc -c $< -o $@ $(CFLAGS)
+
+securedinteractions.o: securedinteractions.c
+	gcc -c $< -o $@ $(CFLAGS)
+	
+#Delete all temporary files
+clean:
+	rm -rf *.o *.exe

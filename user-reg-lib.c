@@ -5,10 +5,8 @@
 *Last modification : 28/11/2017
 */
 
-#include <string.h>
-#include <stdlib.h>
-
-#include "user.h"
+#include "securedinteractions.h"
+#include "user-lib.h"
 
 User createUser(long Name)
 {

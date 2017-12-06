@@ -5,7 +5,8 @@
 *Last modification : 28/11/2017
 */
 
-#include "transaction.h"
+#include "securedinteractions.h"
+#include "transaction-lib.h"
 
 Transaction createTransaction()
 {
@@ -22,12 +23,12 @@ TransactionStatus getStatus(Transaction t)
 	return(t->Status);
 }
 
-long getStartDateTime(Transation t)
+long getStartDateTime(Transaction t)
 {
 	return(t->StartDateTime);
 }
 
-long getEndDateTime(Transation t)
+long getEndDateTime(Transaction t)
 {
 	return(t->EndDateTime);
 }
