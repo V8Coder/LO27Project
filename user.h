@@ -8,12 +8,14 @@
 #ifndef _USER_H_
 #define _USER_H_
 
+#define MaxNameLenght 30
+
 /*
  * the abstract datatype user
  */
 typedef struct User_struct {
 	long ID;
-	char Name[];
+	char Name[MaxNameLenght];
 } User_struct;
 typedef User_struct* User;
 
