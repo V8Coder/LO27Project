@@ -8,6 +8,9 @@
 #ifndef _USER_H_
 #define _USER_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #define MaxNameLenght 30
 
 /*

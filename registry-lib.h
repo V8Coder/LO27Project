@@ -8,16 +8,17 @@
 #ifndef _REGISTRY_H_
 #define _REGISTRY_H_
 
-#include "transaction.h"
-#include "user.h"
+
+#include "transaction-lib.h"
+#include "user-lib.h"
 
 /*
  	* The abstract datatype transaction
  */
 typedef struct TransactionElem{
-	struct TransactionElement *previous;
+	struct TransactionElem *previous;
 	Transaction transaction;
-	struct TransactionElement *next;
+	struct TransactionElem *next;
 }TransactionElement;
 
 typedef struct Registry{
@@ -28,7 +29,7 @@ typedef struct Registry{
 }Registry;
 
 typedef long Start;
-typedef long End
+typedef long End;
 
 /*
 	* The functions
@@ -37,10 +38,10 @@ typedef long End
 double getBalance(Registry r, User u);
 
 
-... getHistory(Registry r, User u);
+Registry getHistory(Registry r, User u);
 
 
-... getHistoryLimit(Registry r, User u, Start s, End e);
+Registry getHistoryLimit(Registry r, User u, Start s, End e);
 
 
 double getAverageCredit(Registry r, User u, Start s, End e);

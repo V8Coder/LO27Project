@@ -8,6 +8,9 @@
 #ifndef _TRANSACTION_H_
 #define _TRANSACTION_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 /*
  	* The abstract datatype transaction
  */
@@ -63,14 +66,14 @@ TransactionStatus getStatus(Transaction t);
  * t : a transaction pointer
  * return : long the timestamp of the begining of the transaction
  */
-long getStartDateTime(Transation t);
+long getStartDateTime(Transaction t);
 
 /*
  * getEndDateTime take a transaction pointer and return the timesptamp of the end of the transaction
  * t : a transaction pointer
  * return : long the timestamp of the end of the transaction
  */
-long getEndDateTime(Transation t);
+long getEndDateTime(Transaction t);
 
 /*
  * getTTL take a transaction pointer and gets the time-to-live of the transaction
