@@ -10,15 +10,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "tree-lib.h"
 
 /*
  	* The abstract datatype transaction
  */
-typedef enum bool
-{
-	true = 1, false = 0
-} bool;
-
 typedef enum TransactionStatus
 {
     PENDING, CONFIRMED, EXECUTED, CANCELED
