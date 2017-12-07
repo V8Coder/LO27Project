@@ -93,15 +93,39 @@ int height(BTree b)
 
 bool contain(BTree t, long l)
 {
-	Btree currentNode = t;
+	BTree currentNode = t;
 	bool b = false;
 	if(is_tree_empty(t) == false){
 		while(b == false || is_tree_empty(currentNode)){
-			if(currentNode < l)
+			if(currentNode->value < l)
 				currentNode = currentNode->left;
-			else if(currentNode > l)
+			else if(currentNode->value > l)
 				currentNode = currentNode->right;
 			else
 				b = true;
+		}
+	}
+	return b;
+}
+/*
+ * Fonction en cour de finition
+ * si tu veux la finir tu peux
+ */
+bool add(BTree t, long l)
+{
+	BTree currentNode = t;
+	bool b = true;
+	if(is_tree_empty(t) == false){
+		while(b == true || is_tree_empty(currentNode)){
+			if(currentNode->value < l)
+				currentNode = currentNode->left;
+			else if(currentNode->value > l)
+				currentNode = currentNode->right;
+			else
+				b = false;
+		}
+		if(b==true){
+			}
+	}
 	return b;
 }
