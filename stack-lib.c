@@ -64,5 +64,3 @@ void delete_stack(Stack s)
 	empty_stack(s);
 	free(s);
 }
-
-int main(){return 0;}

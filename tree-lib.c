@@ -6,6 +6,7 @@
 */
 
 #include "tree-lib.h"
+#include "stack-lib.h"
 #include <stdlib.h>
 
 int max(int a, int b)
@@ -20,12 +21,12 @@ bool is_tree_empty(BTree b)
 
 bool is_leaf(BTree b)
 {
-	if(is_empty(b))
+	if(is_tree_empty(b))
 	{
 		return false;
 	}
 	
-	return is_empty(b->left) && is_empty(b->right);
+	return is_tree_empty(b->left) && is_tree_empty(b->right);
 }
 
 BTree root(BTree t, BTree l, BTree r)
@@ -38,10 +39,10 @@ BTree root(BTree t, BTree l, BTree r)
 BTree new_leaf(long value)
 {
 	BTree t = (BTree)malloc(sizeof(Tree_Element));
-	tree_elem->value = value;
-	tree_elem->left = NULL;
-	tree_elem->right = NULL;
-	return tree_elem;
+	t->value = value;
+	t->left = NULL;
+	t->right = NULL;
+	return t;
 }
 
 long root_value(BTree t)
@@ -61,7 +62,7 @@ BTree right_child(BTree t)
 
 int size(BTree b)
 {
-	if(is_empty(b)) {
+	if(is_tree_empty(b)) {
 		return 0;
 	}
 	
@@ -70,7 +71,7 @@ int size(BTree b)
 
 int nb_leaves(BTree b)
 {
-	if(is_empty(b)) {
+	if(is_tree_empty(b)) {
 		return 0;
 	}
 	
@@ -83,7 +84,7 @@ int nb_leaves(BTree b)
 
 int height(BTree b)
 {
-	if(is_empty(b)) {
+	if(is_tree_empty(b)) {
 		return 0;
 	}
 	
@@ -92,5 +93,8 @@ int height(BTree b)
 
 bool contain(BTree t, long l)
 {
+	Stack s = new_stack();
+	s = push(s, t);
+	
 	return true;
 }

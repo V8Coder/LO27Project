@@ -1,4 +1,4 @@
-/**Name of the file : stack-lib.h
+/*Name of the file : stack-lib.h
 *Goal of the file : Creation an manipulation of stack
 *Authors : Lucas CELANT / Loic MARTIN
 *E-mail : lucas.celant@utbm.fr / loic.martin@utbm.fr
@@ -24,7 +24,7 @@ typedef struct stack_head
 }Stack_Head;
 typedef Stack_Head* Stack;
 
-/**
+/*
  * Check if the stack is empty
  * @param s a stack
  * @return trus if the stack is empty, false otherwise
