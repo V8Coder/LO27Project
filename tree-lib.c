@@ -13,7 +13,7 @@ int max(int a, int b)
 	return a < b ? b : a;
 }
 
-bool is_empty(BTree b)
+bool is_tree_empty(BTree b)
 {
 	return b == NULL;
 }
@@ -37,7 +37,7 @@ BTree root(BTree t, BTree l, BTree r)
 
 BTree new_leaf(long value)
 {
-	BTree tree_elem = (BTree)malloc(sizeof(tree_elem));
+	BTree t = (BTree)malloc(sizeof(Tree_Element));
 	tree_elem->value = value;
 	tree_elem->left = NULL;
 	tree_elem->right = NULL;

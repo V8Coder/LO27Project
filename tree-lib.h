@@ -35,7 +35,7 @@ int max(int a, int b);
  * @param b the binary tree to test
  * @return true if the binary tree is empty, false otherwise
  */
-bool is_empty(BTree b);
+bool is_tree_empty(BTree b);
 
 /**
  * Test if a binary tree is a leaf (i.e. has no children)
