@@ -106,4 +106,12 @@ int height(BTree b);
  */
 bool contain(BTree t, long l);
 
+/**
+ * Add a new long to a tree
+ * @param t a binary tree
+ * @param l the value we want to search in the tree
+ * @return false if the value is already contained, othewise otherwise
+ */
+bool add(BTree t, long l);
+
 #endif

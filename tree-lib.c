@@ -93,8 +93,15 @@ int height(BTree b)
 
 bool contain(BTree t, long l)
 {
-	Stack s = new_stack();
-	s = push(s, t);
-	
-	return true;
+	Btree currentNode = t;
+	bool b = false;
+	if(is_tree_empty(t) == false){
+		while(b == false || is_tree_empty(currentNode)){
+			if(currentNode < l)
+				currentNode = currentNode->left;
+			else if(currentNode > l)
+				currentNode = currentNode->right;
+			else
+				b = true;
+	return b;
 }

@@ -12,7 +12,7 @@
 
 typedef struct stack_elem
 {
-	BTree value;
+	BTree tree;
 	struct stack_elem* next;
 }Stack_Elem;
 typedef Stack_Elem* Stack_Element;

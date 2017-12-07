@@ -25,7 +25,7 @@ Stack push(Stack s, BTree t)
 {
 	Stack_Element se = (Stack_Element)malloc(sizeof(Stack_Elem));
 	se->next = NULL;
-	se->value = t;
+	se->tree = t;
 	s->size++;
 	if(is_stack_empty(s))
 		s->top = se;
