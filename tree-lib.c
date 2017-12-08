@@ -107,25 +107,26 @@ bool contain(BTree t, long l)
 	}
 	return b;
 }
-/*
- * Fonction en cour de finition
- * si tu veux la finir tu peux
- */
+
 bool add(BTree t, long l)
 {
-	BTree currentNode = t;
-	bool b = true;
-	if(is_tree_empty(t) == false){
-		while(b == true || is_tree_empty(currentNode)){
-			if(currentNode->value < l)
-				currentNode = currentNode->left;
-			else if(currentNode->value > l)
-				currentNode = currentNode->right;
+	bool b = false;
+	Stack s = new_stack();
+	s = push(s,t);
+	if(!contain(t,l)){
+		while(seek(s) != NULL){
+			if(l < s->top->tree->value)
+				s = push(s, s->top->tree->left);
 			else
-				b = false;
+				s = push(s, s->top->tree->right);	
 		}
-		if(b==true){
-			}
+		s = pop(s);
+		if(l < s->top->tree->value)
+			s->top->tree->left = new_leaf(l);
+		else
+			s->top->tree->right = new_leaf(l);
+		b = true;
 	}
+	delete_stack(s);
 	return b;
 }

@@ -50,7 +50,7 @@ Stack push(Stack s, BTree t);
  * @param s a stack
  * @return a pointer to a tree node
  */
-Stack_Element peek(Stack s);
+Stack_Element seek(Stack s);
 
 /**
  * Retrieve an element from the stack

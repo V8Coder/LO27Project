@@ -36,7 +36,7 @@ Stack push(Stack s, BTree t)
 	return s;
 }
 
-Stack_Element peek(Stack s)
+Stack_Element seek(Stack s)
 {
 	return s->top;
 }
