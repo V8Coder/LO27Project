@@ -110,23 +110,25 @@ bool contain(BTree t, long l)
 
 bool add(BTree t, long l)
 {
-	bool b = false;
 	Stack s = new_stack();
 	s = push(s,t);
-	if(!contain(t,l)){
-		while(seek(s) != NULL){
-			if(l < s->top->tree->value)
-				s = push(s, s->top->tree->left);
-			else
-				s = push(s, s->top->tree->right);	
-		}
-		s = pop(s);
+	while(seek(s) != NULL){
 		if(l < s->top->tree->value)
-			s->top->tree->left = new_leaf(l);
-		else
-			s->top->tree->right = new_leaf(l);
-		b = true;
+			s = push(s, s->top->tree->left);
+		else if(l > s->top->tree->value)
+			s = push(s, s->top->tree->right);
+		else{
+			delete_stack(s);
+			return false;
+		}
 	}
+	s = pop(s);
+	
+	if(l < s->top->tree->value)
+		s->top->tree->left = new_leaf(l);
+	else
+		s->top->tree->right = new_leaf(l);
+	
 	delete_stack(s);
-	return b;
+	return true;
 }
