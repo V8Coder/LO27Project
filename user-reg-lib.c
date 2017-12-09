@@ -8,9 +8,10 @@
 #include "securedinteractions.h"
 #include "user-lib.h"
 
-User createUser(long name)
+User createUser(char name[])
 {
 	User u = (User) malloc(sizeof(User_struct));
+	setName(u, name);
 	u->ID = create_ID(name);
 	return u;
 }
