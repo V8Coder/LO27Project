@@ -14,19 +14,19 @@ registrymain.exe: registrymain.o registry-reg-lib.o transaction-reg-lib.o user-r
 registrymain.o : registrymain.c registry-reg-lib.c transaction-reg-lib.o user-reg-lib.c tree-lib.c stack-lib.c secured-interactions-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 	
-transaction-reg-lib.o: transaction-reg-lib.c registry-reg-lib.c user-reg-lib.c secured-interactions-lib.c
+transaction-reg-lib.o: transaction-reg-lib.c registry-reg-lib.c user-reg-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 
-registry-reg-lib.o: registry-reg-lib.c secured-interactions-lib.c
+registry-reg-lib.o: registry-reg-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 	
-user-reg-lib.o: user-reg-lib.c secured-interactions-lib.c
+user-reg-lib.o: user-reg-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 	
-tree-lib.o: tree-lib.c secured-interactions-lib.c
+tree-lib.o: tree-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 
-stack-lib.o: stack-lib.c secured-interactions-lib.c
+stack-lib.o: stack-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 	
 secured-interactions-lib.o: secured-interactions-lib.c

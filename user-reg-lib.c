@@ -5,7 +5,7 @@
 *Last modification : 28/11/2017
 */
 
-#include "secured-interactions-lib.h"
+
 #include "user-reg-lib.h"
 
 User createUser(long Name)
