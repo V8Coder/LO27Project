@@ -50,4 +50,11 @@ char* getName(User u);
  */
 void setName(User u, char name[]);
 
+/**
+ * A function that encode the name in the ID
+ * @param name the name of the user
+ * @return a long, the hashed name
+ */
+long create_ID(char name[]);
+
 #endif
