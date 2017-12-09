@@ -6,6 +6,7 @@
 */
 
 #include "tree-lib.h"
+#include "stack-lib.h"
 #include <stdlib.h>
 
 int max(int a, int b)
@@ -13,19 +14,19 @@ int max(int a, int b)
 	return a < b ? b : a;
 }
 
-bool is_empty(BTree b)
+bool is_tree_empty(BTree b)
 {
 	return b == NULL;
 }
 
 bool is_leaf(BTree b)
 {
-	if(is_empty(b))
+	if(is_tree_empty(b))
 	{
 		return false;
 	}
 	
-	return is_empty(b->left) && is_empty(b->right);
+	return is_tree_empty(b->left) && is_tree_empty(b->right);
 }
 
 BTree root(BTree t, BTree l, BTree r)
@@ -37,11 +38,11 @@ BTree root(BTree t, BTree l, BTree r)
 
 BTree new_leaf(long value)
 {
-	BTree tree_elem = (BTree)malloc(sizeof(tree_elem));
-	tree_elem->value = value;
-	tree_elem->left = NULL;
-	tree_elem->right = NULL;
-	return tree_elem;
+	BTree t = (BTree)malloc(sizeof(Tree_Element));
+	t->value = value;
+	t->left = NULL;
+	t->right = NULL;
+	return t;
 }
 
 long root_value(BTree t)
@@ -61,7 +62,7 @@ BTree right_child(BTree t)
 
 int size(BTree b)
 {
-	if(is_empty(b)) {
+	if(is_tree_empty(b)) {
 		return 0;
 	}
 	
@@ -70,7 +71,7 @@ int size(BTree b)
 
 int nb_leaves(BTree b)
 {
-	if(is_empty(b)) {
+	if(is_tree_empty(b)) {
 		return 0;
 	}
 	
@@ -83,7 +84,7 @@ int nb_leaves(BTree b)
 
 int height(BTree b)
 {
-	if(is_empty(b)) {
+	if(is_tree_empty(b)) {
 		return 0;
 	}
 	
@@ -92,5 +93,42 @@ int height(BTree b)
 
 bool contain(BTree t, long l)
 {
+	BTree currentNode = t;
+	bool b = false;
+	if(is_tree_empty(t) == false){
+		while(b == false || is_tree_empty(currentNode)){
+			if(currentNode->value < l)
+				currentNode = currentNode->left;
+			else if(currentNode->value > l)
+				currentNode = currentNode->right;
+			else
+				b = true;
+		}
+	}
+	return b;
+}
+
+bool add(BTree t, long l)
+{
+	Stack s = new_stack();
+	s = push(s,t);
+	while(seek(s) != NULL){
+		if(l < s->top->tree->value)
+			s = push(s, s->top->tree->left);
+		else if(l > s->top->tree->value)
+			s = push(s, s->top->tree->right);
+		else{
+			delete_stack(s);
+			return false;
+		}
+	}
+	s = pop(s);
+	
+	if(l < s->top->tree->value)
+		s->top->tree->left = new_leaf(l);
+	else
+		s->top->tree->right = new_leaf(l);
+	
+	delete_stack(s);
 	return true;
 }

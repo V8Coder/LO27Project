@@ -35,7 +35,7 @@ int max(int a, int b);
  * @param b the binary tree to test
  * @return true if the binary tree is empty, false otherwise
  */
-bool is_empty(BTree b);
+bool is_tree_empty(BTree b);
 
 /**
  * Test if a binary tree is a leaf (i.e. has no children)
@@ -105,5 +105,13 @@ int height(BTree b);
  * @return true if the value is contained, othewise false
  */
 bool contain(BTree t, long l);
+
+/**
+ * Add a new long to a tree
+ * @param t a binary tree
+ * @param l the value we want to search in the tree
+ * @return false if the value is already contained, othewise otherwise
+ */
+bool add(BTree t, long l);
 
 #endif
