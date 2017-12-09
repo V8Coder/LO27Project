@@ -8,22 +8,28 @@ CFLGAS = -Wall -Werror -ansi -pedantic -I.
 #Creation of the main executable
 all: registrymain.exe
 
-registrymain.exe: registrymain.o registry-lib.o transaction-lib.o user-lib.o securedinteractions.o
+registrymain.exe: registrymain.o registry-reg-lib.o transaction-reg-lib.o user-reg-lib.o tree-lib.c stack-lib.c secured-interactions-lib.o
 	gcc $^ -o $@ $(CFLAGS)
 	
-registrymain.o : registrymain.c registry-lib.c user-lib.c securedinteractions.c
+registrymain.o : registrymain.c registry-reg-lib.c transaction-reg-lib.o user-reg-lib.c tree-lib.c stack-lib.c secured-interactions-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 	
-transaction-lib.o: transaction-lib.c registry-lib.c user-lib.c securedinteractions.c
+transaction-reg-lib.o: transaction-reg-lib.c registry-reg-lib.c user-reg-lib.c secured-interactions-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 
-registry-lib.o: registry-lib.c securedinteractions.c
+registry-reg-lib.o: registry-reg-lib.c secured-interactions-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 	
-user-lib.o: user-lib.c securedinteractions.c
+user-reg-lib.o: user-reg-lib.c secured-interactions-lib.c
+	gcc -c $< -o $@ $(CFLAGS)
+	
+tree-lib.o: tree-lib.c secured-interactions-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 
-securedinteractions.o: securedinteractions.c
+stack-lib.o: stack-lib.c secured-interactions-lib.c
+	gcc -c $< -o $@ $(CFLAGS)
+	
+secured-interactions-lib.o: secured-interactions-lib.c
 	gcc -c $< -o $@ $(CFLAGS)
 	
 #Delete all temporary files

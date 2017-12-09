@@ -6,7 +6,7 @@
 */
 
 
-#include "securedinteractions.h"
+#include "secured-interactions-lib.h"
 
 
 void emptybuffer ()
