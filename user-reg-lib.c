@@ -8,10 +8,10 @@
 #include "securedinteractions.h"
 #include "user-lib.h"
 
-User createUser(long Name)
+User createUser(long name)
 {
-	User u = NULL;
-	u = (User) malloc(sizeof(User_struct));
+	User u = (User) malloc(sizeof(User_struct));
+	u->ID = create_ID(name);
 	return u;
 }
 
@@ -28,4 +28,15 @@ char* getName(User u)
 void setName(User u, char name[])
 {
 	strcpy(u->Name,name);
+	create_ID(name);
+}
+
+long create_ID(char name[])
+{
+	long ID;
+	int i;
+	while(i<30 && name[i]!='\0'){
+		ID=ID+name[i];
+	}
+	return ID;
 }
