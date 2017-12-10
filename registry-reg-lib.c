@@ -5,7 +5,6 @@
 *Last modification : 28/11/2017
 */
 
-
 #include "registry-reg-lib.h"
 
 

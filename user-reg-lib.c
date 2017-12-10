@@ -5,13 +5,13 @@
 *Last modification : 28/11/2017
 */
 
-
 #include "user-reg-lib.h"
 
-User createUser(long Name)
+User createUser(char name[])
 {
-	User u = NULL;
-	u = (User) malloc(sizeof(User_struct));
+	User u = (User) malloc(sizeof(User_struct));
+	setName(u, name);
+	u->ID = create_ID(name);
 	return u;
 }
 
@@ -28,4 +28,16 @@ char* getName(User u)
 void setName(User u, char name[])
 {
 	strcpy(u->Name,name);
+	create_ID(name);
+}
+
+long create_ID(char name[])
+{
+	long ID;
+	int i=0;
+	while(i<30 && name[i]!='\0'){
+		ID=ID+name[i];
+		i++;
+	}
+	return ID;
 }

@@ -5,12 +5,32 @@
 *Last modification : 28/11/2017
 */
 
-
 #include "transaction-reg-lib.h"
 
-Transaction createTransaction()
+Transaction createTransaction(double amount, long emitterID, long recipientID, long TTL)
 {
-
+	int i;
+	time_t sec = time(NULL);
+	if(sec != -1 && amount != 0 && TTL > 0){
+		Transaction t = (Transaction)malloc(sizeof(Transaction_struct));
+		/*penser a faire fct moin facile*/
+		t->ID = sec-15;
+		t->Amount = amount;
+		t->EmitterID = emitterID;
+		t->RecipientID = recipientID;
+		t->Status = PENDING;
+		t->StartDateTime = sec;
+		t->EndDateTime = sec + TTL;
+		t->TTL = TTL;
+		srand(time(NULL));
+		for(i=0;i<PRIVATE_KEY_LENGTH;i++){
+			t->PrivateKey[i] = rand()%(127-32)+32;
+		}
+		return t;
+	}
+	else{
+		return NULL;
+	}
 }
 
 double getAmount(Transaction t)
