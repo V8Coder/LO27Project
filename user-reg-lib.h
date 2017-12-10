@@ -27,7 +27,7 @@ typedef User_struct* User;
  * name : a long, the name of the user
  * Return : a pointer to the structure
  */
-User createUser(long name);
+User createUser(char name[]);
 
 /*
  * getId get the user's ID

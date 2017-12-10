@@ -35,9 +35,10 @@ void setName(User u, char name[])
 long create_ID(char name[])
 {
 	long ID;
-	int i;
+	int i=0;
 	while(i<30 && name[i]!='\0'){
 		ID=ID+name[i];
+		i++;
 	}
 	return ID;
 }
