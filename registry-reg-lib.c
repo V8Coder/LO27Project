@@ -84,5 +84,24 @@ double getAverageCredit(Registry r, User u, Start s, End e)
 }
 
 
+long getAmountR (Registry r, long ID);
+{
+	TransactionElement t = r->tail;
+	while(t->transaction->ID != ID || t->previous != NULL)
+		t = t->previous;
+	if(t->transaction->ID == ID)
+		return t->transaction->Amount;
+	else
+		return 0;
+}
 
-
+TransactionStatus getStatusR (Registry r, long ID);
+{
+	TransactionElement t = r->tail;
+	while(t->transaction->ID != ID || t->previous != NULL)
+		t = t->previous;
+	if(t->transaction->ID == ID)
+		return t->transaction->Status;
+	else
+		return 0;
+}
