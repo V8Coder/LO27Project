@@ -77,7 +77,7 @@ double getAverageDebit(Registry r, User u, Start s, End e);
 
 /*
 *Gets the amount of the transaction knowing only its ID
-*Return : a long which is the amount of the transaction
+*Return : a long which is the amount of the transaction, zero if the ID is not contain in the registry
 */
 long getAmountR (Registry r, long ID);
 
