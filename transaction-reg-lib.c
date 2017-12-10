@@ -5,7 +5,7 @@
 *Last modification : 28/11/2017
 */
 
-#include "securedinteractions.h"
+
 #include "transaction-lib.h"
 
 Transaction createTransaction()
