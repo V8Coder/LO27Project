@@ -9,8 +9,8 @@
 #define _REGISTRY_H_
 
 
-#include "transaction-lib.h"
-#include "user-lib.h"
+#include "transaction-reg-lib.h"
+#include "user-reg-lib.h"
 
 /*
  	* The abstract datatype transaction

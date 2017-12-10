@@ -5,8 +5,8 @@
 *Last modification : 28/11/2017
 */
 
-#include "securedinteractions.h"
-#include "user-lib.h"
+
+#include "user-reg-lib.h"
 
 User createUser(char name[])
 {

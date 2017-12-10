@@ -10,11 +10,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "tree-lib.h"
+#include <time.h>
 
+#define PRIVATE_KEY_LENGTH 16
 /*
  	* The abstract datatype transaction
  */
+
+typedef enum bool
+{
+	true = 1, false = 0
+} bool; 
+
 typedef enum TransactionStatus
 {
     PENDING, CONFIRMED, EXECUTED, CANCELED
@@ -24,26 +31,26 @@ typedef struct Transaction_struct {
 	long ID;
 	double Amount;
 	long EmitterID;
-	long RecipentID;
-	TransactionStatus Status ;
+	long RecipientID;
+	TransactionStatus Status;
 	long StartDateTime;
 	long EndDateTime;
 	long TTL;
-	char PrivateKey[];
+	char PrivateKey[PRIVATE_KEY_LENGTH];
 } Transaction_struct;
 typedef Transaction_struct* Transaction;
 
-/*
-	* The functions
-*/
-
-/*
+/**
  * createTransaction create a new transaction with a randomly generated ID
- * return : a pointer to a transaction
+ * @param amount the amount of the transaction, a reel not equal to zero
+ * @param emitterID the emitterID
+ * @param recipientID the recipient ID
+ * @param TTL the time to leave of the transaction in second
+ * @return a transaction
  */
-Transaction createTransaction();
+Transaction createTransaction(double amount, long emitterID, long recipientID, long TTL);
 
-/*
+/**
  * getAmount take a transaction pointer and gets the amount of the transaction
  * t : a transaction type pointer
  * return : a double which shows the ammount of the transaction
