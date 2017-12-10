@@ -6,6 +6,6 @@
 */
 
 
-#include "registry-lib.h"
+#include "registry-reg-lib.h"
 
 

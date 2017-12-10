@@ -6,7 +6,7 @@
 */
 
 
-#include "transaction-lib.h"
+#include "transaction-reg-lib.h"
 
 Transaction createTransaction()
 {
