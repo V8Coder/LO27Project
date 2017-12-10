@@ -36,7 +36,11 @@ Registry getHistory(Registry r, User u)
 	Reg->tail=NULL;
 	Reg->transactionCount=0;
 	Reg->lastTransactionDate=0;
-	TransactionElement t=r->head;
+	TransactionElement t=r->head, Tra=NULL;
+	while 
+	{
+		
+	}
 	while (t->Transaction->EmitterID!=u->ID&&t->Transaction->RecipientID!=u->ID&&t!=r->tail)
 	{
 			t=t->next;
@@ -46,6 +50,7 @@ Registry getHistory(Registry r, User u)
 		Reg->head=t;
 		Reg->tail=t;
 		Reg->transactionCount+=1;
+		Reg->lastTransactionDate=t->Transaction->StartDateTime;
 	}
 	while (t!=r->tail)
 	{
@@ -60,6 +65,44 @@ Registry getHistory(Registry r, User u)
 			Reg->lastTransactionDate=t->Transaction->StartDateTime;
 		}
 	}
+	
+	
+}
+
+
+Registry getHistoryLimit(Registry r, User u, Start s, End e)
+{
+	if (s>e&&s>r->lastTransactionDate)
+	{
+		throw;
+	}
+	if (e>r->lastTransactionDate)
+	{
+		e=r->lastTransactionDate;
+	}
+	Registry Reg;
+	Reg->head=NULL;
+	Reg->tail=NULL;
+	Reg->transactionCount=0;
+	Reg->lastTransactionDate=0;
+	TransactionElement t=r->head, Tra=NULL;	
+	while (t->Transaction->StartDateTime<s)
+	{
+		t=t->next;
+	}
+	while (t->Transaction->StartDateTime<=e)
+	{
+		while (t->Transaction->EmitterID!=u->ID && t->Transaction->RecipientID!=u->ID && t->Transaction->StartDateTime<=e)
+		{
+			t=t->next;
+		}
+		if (t->Transaction->StartDateTime<=e)
+		{
+			Tra->t;
+			
+		}
+	}
+
 	
 	
 }

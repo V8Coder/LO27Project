@@ -52,7 +52,7 @@ double getBalance(Registry r, User u);
 Registry getHistory(Registry r, User u);
 
 /*
-*Gets the complete list of the transactions for the specifier user between two dates Start and End
+*Gets the complete list of the transactions for the specified user between two dates Start and End
 *Return : a registry which contains all the transactions made by the user between two dates
 */
 Registry getHistoryLimit(Registry r, User u, Start s, End e);
