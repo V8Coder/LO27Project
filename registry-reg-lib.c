@@ -9,3 +9,80 @@
 #include "registry-reg-lib.h"
 
 
+double getBalance(Registry r, User u)
+{
+	double balance=0;
+	TransactionElement t=r->head;
+	for (int i =0;i<r->transactionCount;i++)
+	{
+		if (t->transaction->EmitterID*1.==u->ID)
+		{
+			balance-=t->transaction->Amount;
+		}
+		if (t->transaction->RecipientID*1.==u->ID)
+		{
+			balance+=t->transaction->Amount;
+		}
+		t=t->next;
+	}
+	return balance;
+}
+
+
+Registry getHistory(Registry r, User u)
+{
+	Registry Reg;
+	Reg->head=NULL;
+	Reg->tail=NULL;
+	Reg->transactionCount=0;
+	Reg->lastTransactionDate=0;
+	TransactionElement t=r->head;
+	while (t->Transaction->EmitterID!=u->ID&&t->Transaction->RecipientID!=u->ID&&t!=r->tail)
+	{
+			t=t->next;
+	}
+	if (t!=r->tail)
+	{
+		Reg->head=t;
+		Reg->tail=t;
+		Reg->transactionCount+=1;
+	}
+	while (t!=r->tail)
+	{
+		while (t->Transaction->EmitterID!=u->ID&&t->Transaction->RecipientID!=u->ID&&t!=r->tail)
+		{
+				t=t->next;
+		}
+		if (t!=r->tail)
+		{
+			Reg->tail=t;
+			Reg->transactionCount+=1;
+			Reg->lastTransactionDate=t->Transaction->StartDateTime;
+		}
+	}
+	
+	
+}
+
+
+double getAverageCredit(Registry r, User u, Start s, End e)
+{
+	double creditSomme=0;
+	long nbCredit=0;
+	TransactionElement t=r->head;
+	for (int i=0;i<r->transactionCount;i++)
+	{
+		if (t->transaction->RecipientID*1.==u->ID)
+		{
+			creditSomme+=t->transaction->Amount;
+			nbCredit+=1;
+		}
+		t=t->next;
+	}
+	return creditSomme/nbCredit;
+	
+}
+
+
+
+

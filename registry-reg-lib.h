@@ -16,17 +16,19 @@
  	* The abstract datatype transaction
  */
 typedef struct TransactionElem{
-	struct TransactionElem *previous;
+	struct TransactionElem* previous;
 	Transaction transaction;
-	struct TransactionElem *next;
-}TransactionElement;
+	struct TransactionElem* next;
+}transactionElement;
+typedef transactionElement* TransactionElement;
 
-typedef struct Registry{
-	TransactionElement *head;
-	TransactionElement *tail;
+typedef struct RegistryElem{
+	TransactionElement head;
+	TransactionElement tail;
 	long transactionCount;
 	long lastTransactionDate;
-}Registry;
+}RegistryElem;
+typedef RegistryElem* Registry;
 
 typedef long Start;
 typedef long End;
@@ -77,13 +79,13 @@ double getAverageDebit(Registry r, User u, Start s, End e);
 *Gets the amount of the transaction knowing only its ID
 *Return : a long which is the amount of the transaction
 */
-long getAmount (Registry r, long ID);
+long getAmountR (Registry r, long ID);
 
 /*
 *Gets the status of the transaction knowing only its ID
 *Return : a TransactionStatus of a transaction
 */
-TransactionStatus getStatus (Registry r, long ID);
+TransactionStatus getStatusR (Registry r, long ID);
 
 
 /*
