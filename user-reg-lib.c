@@ -5,7 +5,6 @@
 *Last modification : 28/11/2017
 */
 
-
 #include "user-reg-lib.h"
 
 User createUser(char name[])

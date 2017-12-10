@@ -32,7 +32,7 @@ typedef struct Transaction_struct {
 	double Amount;
 	long EmitterID;
 	long RecipientID;
-	TransactionStatus Status;
+	TransactionStatus Status ;
 	long StartDateTime;
 	long EndDateTime;
 	long TTL;

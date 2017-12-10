@@ -5,7 +5,6 @@
 *Last modification : 28/11/2017
 */
 
-
 #include "transaction-reg-lib.h"
 
 Transaction createTransaction(double amount, long emitterID, long recipientID, long TTL)
